@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>حجز موعد</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f7f7f7;
+      font-family: Arial, sans-serif;
+      color: #222;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
+      background: white;
+      padding: 40px 25px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .whatsapp-btn {
+      display: block;
+      width: 100%;
+      padding: 17px 20px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 19px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    .whatsapp-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>احجز موعدك مع الدكتور</h1>
+
+    <p>
+      للحجز والاستفسار، اضغط على الزر للانتقال إلى واتساب العيادة.
+    </p>
+
+    <a
+      id="whatsappButton"
+      class="whatsapp-btn"
+      href="https://api.whatsapp.com/send?phone=201100054391&text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D9%88%D8%B5%D9%84%D8%AA%20%D8%A5%D9%84%D9%8A%D9%83%D9%85%20%D9%85%D9%86%20%D8%A5%D9%86%D8%B3%D8%AA%D8%AC%D8%B1%D8%A7%D9%85%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF."
+      target="_blank"
+      rel="noopener"
+    >
+      فتح واتساب
+    </a>
+
+  </div>
+
+  <script>
+
+    const trackingURL =
+      "https://script.google.com/macros/s/AKfycbxUCxvufja1OlHtMTthm9aetpZXoHMJeGuJ3Njxiiire3hTwVc-m-qltjvKWsgZldE0/exec";
+
+    const button =
+      document.getElementById("whatsappButton");
+
+    let tracked = false;
+
+    button.addEventListener("click", function () {
+
+      if (tracked) {
+        return;
+      }
+
+      tracked = true;
+
+      const url =
+        trackingURL +
+        "?action=whatsapp_click" +
+        "&source=Instagram" +
+        "&campaign=Bookings" +
+        "&medium=Bio";
+
+      // تسجيل الضغط بدون تعطيل الانتقال إلى واتساب
+      const img = new Image();
+      img.src = url;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
